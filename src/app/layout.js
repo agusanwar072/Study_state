@@ -3,8 +3,9 @@ import "./globals.css";
 import cx from "classnames";
 import { Montserrat } from "next/font/google";
 import { montserrat } from "./fonts";
+import { DarkModeProvider } from "./utils/darkMode/indedx";
+import Container from "./componen/router";
 import Header from "./componen/layout/header";
-import Content from "./componen/home/content";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,11 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={(montserrat, montserrat.className)}>
-        <Header />
-        <Content />
-
-        {children}
+      <body className={cx(montserrat, montserrat.className)}>
+        <DarkModeProvider>
+          <Header />
+          <Container>{children}</Container>
+        </DarkModeProvider>
       </body>
     </html>
   );
