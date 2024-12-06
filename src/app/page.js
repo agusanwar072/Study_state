@@ -8,6 +8,7 @@ export default function Home() {
       <Link href="/About">
         <p>Go To Abouut</p>
       </Link>
+      <Content />
     </div>
   );
 }
